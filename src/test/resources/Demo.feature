@@ -6,5 +6,6 @@ Feature: Create a Dashboard in Trello
     And I Log in to
     And Go to dashboard
 #    And Put a name to dashboard
+#    Make better with the skype link
     And Create New dashboard
     Then The dashboard was created
