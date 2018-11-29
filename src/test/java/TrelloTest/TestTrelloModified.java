@@ -1,17 +1,14 @@
 package TrelloTest;
 
-import Trello.Boards;
-import Trello.Home;
-import Trello.Login;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import trello.Boards;
+import trello.Home;
+import trello.Login;
+import trello.User;
 
 
 public class TestTrelloModified {
 
-    @BeforeTest
-    public void setup() {
-    }
 
     /**
      * This test go to https://trello.com/logged-out
@@ -21,13 +18,14 @@ public class TestTrelloModified {
      */
     @Test
     public void test_Home_Page_Appear_Correct() {
+        User user = new User("1");
         Home home = new Home();
         Login login = home.clickInitLink();
-        Boards boards = login.loginAs("geremygustavo", "ATpanda41605#");
+        Boards boards = login.loginAs(user.getUsr(), user.getPwd());
         boards.clickbtnTableros();
         boards.clickLinkCreateNewTablero();
         boards.setSubjectName("new tablero test");
         boards.clickbtnCreateTablero();
+        home.closeDriver();
     }
-
 }

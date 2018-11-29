@@ -12,12 +12,16 @@ public class Home extends AbstractPage {
     WebElement linkInit;
 
     public Home() {
-        driver.get("https://trello.com/logged-out");
+        driver.get("https://trello.com/");
     }
 
 
     public Login clickInitLink() {
         linkInit.click();
         return new Login();
+    }
+
+    public void closeDriver() {
+        driver.close();
     }
 }

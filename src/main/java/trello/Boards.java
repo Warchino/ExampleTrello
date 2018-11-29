@@ -4,8 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class Boards extends AbstractPage {
-
-    @FindBy(linkText = "Crear un tablero nuevo...")
+    //*[contains(@href,'guru99.com')]
+//    Xpath=//input[@type='text']
+//    Xpath=	//label[@id='message23']
+//    Xpath=	//input[@value='RESET']
+//    Xpath=//*[@class='barone']
+//    Xpath=//a[@href='http://demo.guru99.com/']
+//    Xpath= //img[@src='//cdn.guru99.com/images/home/java.png']
+    @FindBy(xpath = "//a[contains(@class,'board-tile mod-add')]")
     WebElement linkCreateNewTablero;
 
 
