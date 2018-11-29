@@ -33,6 +33,4 @@ public class dashboardStepDef {
     @Then("I should see the dashboard")
     public void seeDashboard() {
     }
-
-
 }
