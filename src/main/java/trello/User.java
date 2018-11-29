@@ -12,12 +12,13 @@ public class User {
     private String usr;
     private String pwd;
 
-    public User() {
+    public User(String numUser) {
         JSONParser parser = new JSONParser();
+
         try {
             JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("/home/rocku/acc.json"));
-            usr = (String) jsonObject.get("user");
-            pwd = (String) jsonObject.get("pass");
+            usr = (String) jsonObject.get("user".concat(numUser));
+            pwd = (String) jsonObject.get("pass".concat(numUser));
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }

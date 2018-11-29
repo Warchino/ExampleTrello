@@ -38,7 +38,7 @@ public class TestTrello {
      */
     @Test
     public void test_Home_Page_Appear_Correct() throws InterruptedException {
-        User user = new User();
+        User user = new User("2");
         trelloHome = new TrelloHome(driver);
         trelloHome.clicklinkInit();
         trelloLogin = new TrelloLogin(driver);
