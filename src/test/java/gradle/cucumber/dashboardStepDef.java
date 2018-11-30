@@ -6,6 +6,7 @@ import cucumber.api.java.en.When;
 import trello.Boards;
 import trello.Home;
 import trello.Login;
+import trello.User;
 
 public class dashboardStepDef {
 
@@ -20,19 +21,21 @@ public class dashboardStepDef {
 
     @When("I Log in")
     public void logIn() {
-//        home.clicklinkInit();
+        login = home.clickInitLink();
+        User user = new User("1");
+        boards = login.loginAs(user.getUsr(), user.getPwd());
     }
 
     @When("I create a dashboard with a title")
     public void createDashboard(/*String user*/) {
-//        login = new Login(driver);
-//        login.loginToTrello("geremygustavo", "ATpanda41605#");
-        //json file extract the key
+        boards.clickbtnTableros();
+        boards.clickLinkCreateNewTablero();
+        boards.setSubjectName("test N");
+        boards.clickbtnCreateTablero();
     }
 
     @Then("I should see the dashboard")
     public void seeDashboard() {
+        home.closeDriver();
     }
-
-
 }
