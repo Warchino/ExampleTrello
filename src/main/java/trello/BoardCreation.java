@@ -20,9 +20,10 @@ public class BoardCreation extends AbstractPage {
     @FindBy(className = "create-board-form")
     WebElement btnCreateTablero;
 
-    public void createNewBoard(String strsubjectname) {
+    public SelectedDashBoard createNewBoard(String strsubjectname) {
         DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(subjectname));
         subjectname.sendKeys(strsubjectname);
         btnCreateTablero.submit();
+        return new SelectedDashBoard();
     }
 }
