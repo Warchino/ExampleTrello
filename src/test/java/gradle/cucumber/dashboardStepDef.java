@@ -10,23 +10,24 @@ public class dashboardStepDef {
     Home home;
     Login login;
     private Boards boards;
+    SelectedDashBoard dashBoard;
 
     @Given("I am on the Home page Trello")
     public void onTrello() {
         home = new Home();
     }
 
-    @When("I Log in")
-    public void logIn() {
+    @When("I Log in with user {int}")
+    public void logIn(int numUser) {
         login = home.clickInitLink();
-        User user = new User("1");
+        User user = new User(numUser);
         boards = login.loginAs(user.getUsr(), user.getPwd());
     }
 
-    @When("I create a dashboard with a title")
-    public void createDashboard(/*String user*/) {
+    @When("I create a dashboard with a title:{string}")
+    public void createDashboard(String title) {
         BoardCreation newBoard = boards.clickAddBoard();
-        newBoard.createNewBoard("Test POM");
+        dashBoard = newBoard.createNewBoard(title);
     }
 
     @Then("I should see the dashboard")

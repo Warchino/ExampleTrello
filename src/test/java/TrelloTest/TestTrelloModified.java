@@ -8,8 +8,6 @@ import trello.User;
 
 
 public class TestTrelloModified {
-
-
     /**
      * This test go to https://trello.com/logged-out
      * Verify login page title as guru99 bank
@@ -18,7 +16,7 @@ public class TestTrelloModified {
      */
     @Test
     public void test_Home_Page_Appear_Correct() {
-        User user = new User("1");
+        User user = new User(1);
         Home home = new Home();
         Login login = home.clickInitLink();
         Boards boards = login.loginAs(user.getUsr(), user.getPwd());
