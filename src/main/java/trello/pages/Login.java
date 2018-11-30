@@ -1,8 +1,9 @@
-package trello;
+package trello.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import trello.core.ui.AbstractPage;
 
 public class Login extends AbstractPage {
 

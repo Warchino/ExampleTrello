@@ -1,8 +1,9 @@
-package trello;
+package trello.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import trello.core.ui.AbstractPage;
 
 public class BoardCreation extends AbstractPage {
 //    xpath=    //*[contains(@href,'guru99.com')]
@@ -17,13 +18,13 @@ public class BoardCreation extends AbstractPage {
     @FindBy(className = "subtle-input")
     WebElement subjectname;
 
-    @FindBy(className = "create-board-form")
+    @FindBy(css = ".create-board-form button.primary")
     WebElement btnCreateTablero;
 
     public SelectedDashBoard createNewBoard(String strsubjectname) {
-        DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(subjectname));
-        subjectname.sendKeys(strsubjectname);
-        btnCreateTablero.submit();
+        wait.until(ExpectedConditions.visibilityOf(subjectname))
+                .sendKeys(strsubjectname);
+        action.click(btnCreateTablero);
         return new SelectedDashBoard();
     }
 }

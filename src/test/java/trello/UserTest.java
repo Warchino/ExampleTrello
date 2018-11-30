@@ -1,6 +1,7 @@
 package trello;
 
 import org.testng.annotations.Test;
+import trello.core.User;
 
 public class UserTest {
 
