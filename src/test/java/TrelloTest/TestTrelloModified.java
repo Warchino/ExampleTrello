@@ -22,10 +22,10 @@ public class TestTrelloModified {
         Home home = new Home();
         Login login = home.clickInitLink();
         Boards boards = login.loginAs(user.getUsr(), user.getPwd());
-        boards.clickbtnTableros();
-        boards.clickLinkCreateNewTablero();
-        boards.setSubjectName("new tablero test");
-        boards.clickbtnCreateTablero();
+//        boards.clickbtnTableros();
+//        boards.clickLinkCreateNewTablero();
+//        boards.clickAddBoard("new tablero test");
+//        boards.clickbtnCreateTablero();
         home.closeDriver();
     }
 }
