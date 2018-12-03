@@ -6,7 +6,6 @@ import trello.core.ui.AbstractPage;
 
 public class Boards extends AbstractPage {
 
-    //    @FindBy(xpath = "//a[contains(@class,'board-tile mod-add')]")
     @FindBy(xpath = "//*[contains(@class,'quiet-button js-add-board')]")
     WebElement linkCreateNewTablero;
 

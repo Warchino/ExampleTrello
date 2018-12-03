@@ -24,17 +24,17 @@ public class Login extends AbstractPage {
 
     //Set user name in textbox
     public void setUserNameTextField(String strUserName) {
-        userNameTextField.sendKeys(strUserName);
+        action.sendKey(userNameTextField, strUserName);
     }
 
     //Set passwordTextField in passwordTextField textbox
     public void setPasswordTextField(String strPassword) {
-        passwordTextField.sendKeys(strPassword);
+        action.sendKey(passwordTextField, strPassword);
     }
 
     //Click on login button
     public Boards clickLoginButton() {
-        loginButton.click();
+        action.click(loginButton);
         return new Boards();
     }
 
