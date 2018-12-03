@@ -18,7 +18,7 @@ dependencies {
     // Cucumber jvm
     testCompile 'io.cucumber:cucumber-java8:4.2.0'
     // Web driver dependency 
-    testCompile("io.github.bonigarcia:webdrivermanager:3.0.0")
+    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.0.0'
     // Selenium dependency
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
     // Read JSON
