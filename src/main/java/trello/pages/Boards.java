@@ -1,8 +1,8 @@
-package trello;
+package trello.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import trello.core.ui.AbstractPage;
 
 public class Boards extends AbstractPage {
 
@@ -15,10 +15,8 @@ public class Boards extends AbstractPage {
     WebElement btnTableros;
 
     public BoardCreation clickAddBoard() {
-        DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(btnTableros));
-        btnTableros.click();
-        DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(linkCreateNewTablero));
-        linkCreateNewTablero.click();
+        action.click(btnTableros);
+        action.click(linkCreateNewTablero);
         return new BoardCreation();
     }
 }

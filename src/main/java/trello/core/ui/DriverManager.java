@@ -1,8 +1,8 @@
-package trello;
+package trello.core.ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -16,14 +16,16 @@ public class DriverManager {
 
     private WebDriver driver;
     private WebDriverWait wait;
+    private WebDriverAction action;
 
     private DriverManager() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-//        WebDriverManager.firefoxdriver().setup();
-//        driver = new FirefoxDriver();
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 30);
+        action = new WebDriverAction(driver, wait);
     }
 
     public WebDriver getDriver() {
@@ -32,5 +34,9 @@ public class DriverManager {
 
     public WebDriverWait getWait() {
         return wait;
+    }
+
+    public WebDriverAction getAction() {
+        return action;
     }
 }

@@ -1,4 +1,4 @@
-package trello;
+package trello.core;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

@@ -1,10 +1,10 @@
 package TrelloTest;
 
 import org.testng.annotations.Test;
-import trello.Boards;
-import trello.Home;
-import trello.Login;
-import trello.User;
+import trello.pages.Boards;
+import trello.pages.Home;
+import trello.pages.Login;
+import trello.core.User;
 
 
 public class TestTrelloModified {

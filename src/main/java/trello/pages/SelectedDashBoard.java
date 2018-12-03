@@ -1,8 +1,10 @@
-package trello;
+package trello.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import trello.core.ui.DriverManager;
+import trello.core.ui.AbstractPage;
 
 public class SelectedDashBoard extends AbstractPage {
     @FindBy(xpath = "//*[contains(@class,'icon-sm icon-add')]")

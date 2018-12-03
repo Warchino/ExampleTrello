@@ -3,7 +3,8 @@ package gradle.cucumber;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import trello.*;
+import trello.core.User;
+import trello.pages.*;
 
 public class dashboardStepDef {
 
