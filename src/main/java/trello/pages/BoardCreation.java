@@ -1,30 +1,40 @@
 package trello.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import trello.core.ui.AbstractPage;
 
+import java.util.List;
+
 public class BoardCreation extends AbstractPage {
-//    xpath=    //*[contains(@href,'guru99.com')]
-//    Xpath=    //input[@type='text']
-//    Xpath=    //label[@id='message23']
-//    Xpath=    //input[@value='RESET']
-//    Xpath=    //*[@class='barone']
-//    Xpath=    //a[@href='http://demo.guru99.com/']
-//    Xpath=    //img[@src='//cdn.guru99.com/images/home/java.png']
-
-
     @FindBy(className = "subtle-input")
-    WebElement subjectname;
+    WebElement titleTextInputField;
 
     @FindBy(css = ".create-board-form button.primary")
-    WebElement btnCreateTablero;
+    WebElement createDashBoardButton;
 
-    public SelectedDashBoard createNewBoard(String strsubjectname) {
-        wait.until(ExpectedConditions.visibilityOf(subjectname))
-                .sendKeys(strsubjectname);
-        action.click(btnCreateTablero);
+    @FindBy(css = "[class='subtle-chooser-trigger unstyled-button vis-chooser-trigger']")
+    WebElement selectPrivacyButton;
+
+    public SelectedDashBoard createNewBoard(List<String> data) {
+        action.sendKey(titleTextInputField, data.get(1));
+
+        WebElement selectColorBgButton = driver.findElement(By.cssSelector("[class='background-grid-trigger']"
+                + "[title='" + data.get(5) + "']"));
+        action.click(selectColorBgButton);
+
+        action.click(selectPrivacyButton);
+
+        WebElement selectPrivacyList = driver.findElement(By.cssSelector("[class$='icon-" + data.get(3) + "']"));
+        action.click(selectPrivacyList);
+
+        if (data.get(3).contains("public")) {
+            WebElement confirmPublicButton = driver.findElement(By.cssSelector("[class='js-confirm full primary']"));
+            action.click(confirmPublicButton);
+        }
+
+        action.click(createDashBoardButton);
         return new SelectedDashBoard();
     }
 }

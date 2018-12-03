@@ -3,8 +3,11 @@ package gradle.cucumber;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import trello.core.User;
 import trello.pages.*;
+
+import java.util.List;
 
 public class dashboardStepDef {
 
@@ -25,10 +28,11 @@ public class dashboardStepDef {
         boards = login.loginAs(user.getUsr(), user.getPwd());
     }
 
-    @When("I create a dashboard with a title:{string}")
-    public void createDashboard(String title) {
+    @When("I create a dashboard with a:")
+    public void iCreateADashboardWithA(DataTable dataTable) {
+        List<String> data = dataTable.asList(String.class);
         BoardCreation newBoard = boards.clickAddBoard();
-        dashBoard = newBoard.createNewBoard(title);
+        dashBoard = newBoard.createNewBoard(data);
     }
 
     @Then("I should see the dashboard")

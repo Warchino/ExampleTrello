@@ -3,7 +3,6 @@ package trello.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import trello.core.ui.DriverManager;
 import trello.core.ui.AbstractPage;
 
 public class SelectedDashBoard extends AbstractPage {
@@ -19,14 +18,14 @@ public class SelectedDashBoard extends AbstractPage {
     @FindBy(xpath = "//a[contains(@class,'board-header-btn board-header-btn-name js-rename-board')]")
     WebElement name;
 
-    public void addList() {
-        addListSpan.click();
-        listName.sendKeys("new list test");
-        addListButton.click();
+    public void addList(String nameList) {
+        action.click(addListSpan);
+        action.sendKey(listName, nameList);
+        action.click(addListButton);
     }
 
     public String getName() {
-        DriverManager.getInstance().getWait().until(ExpectedConditions.visibilityOf(name));
+        wait.until(ExpectedConditions.visibilityOf(name));
         return name.getText();
     }
 }

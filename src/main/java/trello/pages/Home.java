@@ -18,7 +18,7 @@ public class Home extends AbstractPage {
 
 
     public Login clickInitLink() {
-        linkInit.click();
+        action.click(linkInit);
         return new Login();
     }
 

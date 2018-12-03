@@ -19,4 +19,9 @@ public class WebDriverAction {
         wait.until(ExpectedConditions.elementToBeClickable(element))
                 .click();
     }
+
+    public void sendKey(WebElement element, String key) {
+        wait.until(ExpectedConditions.visibilityOf(element))
+                .sendKeys(key);
+    }
 }
